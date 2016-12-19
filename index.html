@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>TuDúuu</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/tudu.js"></script>
+
+    <script type="application/javascript">
+        function save(){
+            guardarTareas();
+            return '¡Cambios guardados, Adiós!';
+        }
+        
+        window.onbeforeunload = save;
+    </script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>    
+    <div class="container">
+        <div class="row equal">
+        <div class="col-sm-6 col-xs-12" style="background:#F39C12">
+            <h1>TuDú</h1>
+            <br>
+            <ul class="list-group" id="tareas">
+                <li class="list-group-item text-center" style="padding:0"><img src="tareas-check.png"></li>
+            </ul>
+        </div>
+
+        <div class="col-sm-6 col-xs-12" style="background:#18bc9c">
+            <div style="border-color: white; border-width: 2px; border-right: 1px">
+            <h1>Nueva Tarea</h1></div>
+            <br>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="txtNombre" class="col-sm-4 control-label">Nombre</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control input-lg" id="txtNombre" placeholder="Mi Tarea" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="txtDescripcion" class="col-sm-4 control-label">Descripción</label>
+                    <div class="col-sm-8">
+                        <textarea type="text" class="form-control input-lg" id="txtDescripcion" placeholder="Descripcion" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        <button type="submit" class="btn btn-warning btn-lg btn-block" id="btnAgregar" onclick="agregarTarea();return false;"><span class="glyphicon glyphicon-plus pull-right"></span>Agregar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+
+<script>
+// TEST POPULATION... REMOVE //
+function populateTest () {
+    if (JSON.parse(localStorage.getItem("tareas")) === null) {     
+        var tareas = [
+            {"nombre": "Sacar la basura", "descripcion": "Y las botellas vacías!", "estado" : 1},
+            {"nombre": "Pasear el perro", "descripcion": "Por la nueva plaza?", "estado" : 1},
+            {"nombre": "Terminar el TODO list", "descripcion": "", "estado" : 0},
+            {"nombre": "Enviar el TODO list", "descripcion": "", "estado" : 0}];
+        
+        var lista = document.getElementById("tareas");
+    
+        for (c = 1; c < lista.children.length; c++) {
+            var estado = lista.children[c].value;
+            var nombre = lista.children[c].children[2].innerHTML;
+            var descripcion = lista.children[c].children[3].innerHTML;
+            tareas.push({"nombre": nombre, "descripcion": descripcion, "estado": estado});
+        }
+        localStorage.setItem("tareas", JSON.stringify(tareas));
+    }
+}
+populateTest();
+// TEST POPULATION... REMOVE //
+    
+    cargarTareas();
+</script>
+</body>
+
+</html>

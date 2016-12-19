@@ -1,0 +1,79 @@
+@font-face {
+    font-family: Buxton;
+    src: url(../fonts/BuxtonSketch.ttf);
+}
+
+@font-face {
+    font-family: Pristina;
+    src: url(../fonts/Pristina.ttf);
+}
+
+h1,
+h2,
+label,
+button {
+    font-family: Buxton;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    font-size: 4em;
+}
+
+label {
+    font-size: 1.8em;
+}
+
+button {
+    font-size: 2.5em !important;
+}
+
+.form-horizontal .control-label {
+    text-align: left;
+    color: lightgreen;
+}
+
+.do {
+    background-color: #4CAF50;
+}
+
+.eliminar {
+    background-color: #FF0500;
+}
+
+.expandir {
+    background-color: #006CB9;
+}
+
+li.list-group-item {
+    border: 0;
+    font-family: Pristina;
+    font-size: 1.3em;
+}
+
+li.done {
+    color: #777;
+    background-color: #eee;
+}
+
+li.done strong {
+    text-decoration: line-through;
+}
+
+li.list-group-item div {
+    font-size: 1em;
+    font-style: italic;
+    padding-left: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .equal {  
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      flex:1 1 auto;
+  }
+}
